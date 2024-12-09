@@ -115,7 +115,7 @@ const PostMenuActions = ({ post }) => {
       {isPending ? (
         "Loading..."
       ) : error ? (
-        "Saved post fetching failed!"
+        "Log in first!"
       ) : (
         <div
           className="flex items-center gap-2 py-2 text-sm cursor-pointer"
