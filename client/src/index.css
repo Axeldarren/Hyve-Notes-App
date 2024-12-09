@@ -3,22 +3,60 @@
 @tailwind utilities;
 
 body {
-  background-color: #e6e6ff;
+  background-color: #FFFFFF;
   width: 100vw;
   overflow-x: hidden;
   font-family: "Montserrat", sans-serif;
 }
 
-.animatedButton{
+.animatedButton {
   animation-duration: 10000ms;
 }
 
 .ql-container{
   border: none !important;
 }
+
 .ql-toolbar{
   border: none !important;
 }
+
 .ql-editor{
   border: none !important;
+}
+
+.bg-hyve {
+  background-color: #F7B118;
+}
+
+.brown-hyve {
+  color: #150A03;
+}
+
+.color-hyve {
+  color: #F7B118;
+}
+
+.bg-body{
+  background-color: #FFFCF5;
+}
+
+.bg-search-bar{
+  background-color: #FBDB94;
+}
+
+input::placeholder {
+  color: #150A03; /* Your desired placeholder color */
+}
+
+.bordered {
+  border: 2px dotted #150A03;  /* Set the border color */               
+}
+
+.bordered-hyve {
+  border: 2px solid #F7B118;  /* Set the border color */               
+}
+
+.bg-hyve-light {
+  background-color: #FBDB94;
 }

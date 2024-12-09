@@ -34,9 +34,9 @@ const SinglePostPage = () => {
           </h1>
           <div className="flex items-center gap-2 text-gray-400 text-sm">
             <span>Written by</span>
-            <Link className="text-blue-800">{data.user.username}</Link>
+            <Link className="text-yellow-600 font-bold">{data.user.username}</Link>
             <span>on</span>
-            <Link className="text-blue-800">{data.category}</Link>
+            <Link className="text-yellow-600 font-medium">{data.category}</Link>
             <span>{format(data.createdAt)}</span>
           </div>
           <p className="text-gray-500 font-medium">{data.desc}</p>
@@ -51,90 +51,9 @@ const SinglePostPage = () => {
       <div className="flex flex-col md:flex-row gap-12 justify-between">
         {/* text */}
         <div className="lg:text-lg flex flex-col gap-6 text-justify">
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias neque
-            fugiat itaque quas esse sunt cupiditate possimus cumque asperiores,
-            dolorem, dolores eligendi amet perferendis illum repellat nam quam
-            facilis veritatis. Lorem ipsum dolor sit amet consectetur
-            adipisicing elit. Sint ipsa fuga nihil numquam, quam dicta quas
-            exercitationem aliquam maxime quaerat, enim autem culpa sequi at!
-            Earum facere in ducimus culpa. Lorem ipsum dolor sit amet
-            consectetur, adipisicing elit. Libero fuga modi amet error aliquid
-            eos nobis vero soluta facilis, voluptatem, voluptates quod suscipit
-            obcaecati voluptate quaerat laborum, voluptatum dicta ipsum.
-          </p>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias neque
-            fugiat itaque quas esse sunt cupiditate possimus cumque asperiores,
-            dolorem, dolores eligendi amet perferendis illum repellat nam quam
-            facilis veritatis. Lorem ipsum dolor sit amet consectetur
-            adipisicing elit. Sint ipsa fuga nihil numquam, quam dicta quas
-            exercitationem aliquam maxime quaerat, enim autem culpa sequi at!
-            Earum facere in ducimus culpa. Lorem ipsum dolor sit amet
-            consectetur, adipisicing elit. Libero fuga modi amet error aliquid
-            eos nobis vero soluta facilis, voluptatem, voluptates quod suscipit
-            obcaecati voluptate quaerat laborum, voluptatum dicta ipsum.
-          </p>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias neque
-            fugiat itaque quas esse sunt cupiditate possimus cumque asperiores,
-            dolorem, dolores eligendi amet perferendis illum repellat nam quam
-            facilis veritatis. Lorem ipsum dolor sit amet consectetur
-            adipisicing elit. Sint ipsa fuga nihil numquam, quam dicta quas
-            exercitationem aliquam maxime quaerat, enim autem culpa sequi at!
-            Earum facere in ducimus culpa. Lorem ipsum dolor sit amet
-            consectetur, adipisicing elit. Libero fuga modi amet error aliquid
-            eos nobis vero soluta facilis, voluptatem, voluptates quod suscipit
-            obcaecati voluptate quaerat laborum, voluptatum dicta ipsum.
-          </p>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias neque
-            fugiat itaque quas esse sunt cupiditate possimus cumque asperiores,
-            dolorem, dolores eligendi amet perferendis illum repellat nam quam
-            facilis veritatis. Lorem ipsum dolor sit amet consectetur
-            adipisicing elit. Sint ipsa fuga nihil numquam, quam dicta quas
-            exercitationem aliquam maxime quaerat, enim autem culpa sequi at!
-            Earum facere in ducimus culpa. Lorem ipsum dolor sit amet
-            consectetur, adipisicing elit. Libero fuga modi amet error aliquid
-            eos nobis vero soluta facilis, voluptatem, voluptates quod suscipit
-            obcaecati voluptate quaerat laborum, voluptatum dicta ipsum.
-          </p>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias neque
-            fugiat itaque quas esse sunt cupiditate possimus cumque asperiores,
-            dolorem, dolores eligendi amet perferendis illum repellat nam quam
-            facilis veritatis. Lorem ipsum dolor sit amet consectetur
-            adipisicing elit. Sint ipsa fuga nihil numquam, quam dicta quas
-            exercitationem aliquam maxime quaerat, enim autem culpa sequi at!
-            Earum facere in ducimus culpa. Lorem ipsum dolor sit amet
-            consectetur, adipisicing elit. Libero fuga modi amet error aliquid
-            eos nobis vero soluta facilis, voluptatem, voluptates quod suscipit
-            obcaecati voluptate quaerat laborum, voluptatum dicta ipsum.
-          </p>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias neque
-            fugiat itaque quas esse sunt cupiditate possimus cumque asperiores,
-            dolorem, dolores eligendi amet perferendis illum repellat nam quam
-            facilis veritatis. Lorem ipsum dolor sit amet consectetur
-            adipisicing elit. Sint ipsa fuga nihil numquam, quam dicta quas
-            exercitationem aliquam maxime quaerat, enim autem culpa sequi at!
-            Earum facere in ducimus culpa. Lorem ipsum dolor sit amet
-            consectetur, adipisicing elit. Libero fuga modi amet error aliquid
-            eos nobis vero soluta facilis, voluptatem, voluptates quod suscipit
-            obcaecati voluptate quaerat laborum, voluptatum dicta ipsum.
-          </p>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias neque
-            fugiat itaque quas esse sunt cupiditate possimus cumque asperiores,
-            dolorem, dolores eligendi amet perferendis illum repellat nam quam
-            facilis veritatis. Lorem ipsum dolor sit amet consectetur
-            adipisicing elit. Sint ipsa fuga nihil numquam, quam dicta quas
-            exercitationem aliquam maxime quaerat, enim autem culpa sequi at!
-            Earum facere in ducimus culpa. Lorem ipsum dolor sit amet
-            consectetur, adipisicing elit. Libero fuga modi amet error aliquid
-            eos nobis vero soluta facilis, voluptatem, voluptates quod suscipit
-            obcaecati voluptate quaerat laborum, voluptatum dicta ipsum.
-          </p>
+          <div
+            dangerouslySetInnerHTML={{ __html: data.content }}
+          />
         </div>
         {/* menu */}
         <div className="px-4 h-max sticky top-8">
@@ -149,9 +68,9 @@ const SinglePostPage = () => {
                   h="48"
                 />
               )}
-              <Link className="text-blue-800">{data.user.username}</Link>
+              <Link className="text-yellow-600 font">{data.user.username}</Link>
             </div>
-            <p className="text-sm text-gray-500">
+            <p className="text-sm text-gray-800">
               Lorem ipsum dolor sit amet consectetur
             </p>
             <div className="flex gap-2">
@@ -163,7 +82,7 @@ const SinglePostPage = () => {
               </Link>
             </div>
           </div>
-          <PostMenuActions post={data}/>
+          <PostMenuActions post={data} />
           <h1 className="mt-8 mb-4 text-sm font-medium">Categories</h1>
           <div className="flex flex-col gap-2 text-sm">
             <Link className="underline">All</Link>
@@ -187,7 +106,7 @@ const SinglePostPage = () => {
           <Search />
         </div>
       </div>
-      <Comments postId={data._id}/>
+      <Comments postId={data._id} />
     </div>
   );
 };

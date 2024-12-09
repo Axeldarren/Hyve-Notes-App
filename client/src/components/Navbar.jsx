@@ -10,8 +10,8 @@ const Navbar = () => {
     <div className="w-full h-16 md:h-20 flex items-center justify-between">
       {/* LOGO */}
       <Link to="/" className="flex items-center gap-4 text-2xl font-bold">
-        <Image src="logo.png" alt="Lama Logo" w={32} h={32} />
-        <span>lamalog</span>
+        <Image src="Hyve.png" alt="Lama Logo" w={32} h={32} />
+        <span>Hyve</span>
       </Link>
       {/* MOBILE MENU */}
       <div className="md:hidden">
@@ -42,7 +42,7 @@ const Navbar = () => {
         </div>
         {/* MOBILE LINK LIST */}
         <div
-          className={`w-full h-screen bg-[#e6e6ff] flex flex-col items-center justify-center gap-8 font-medium text-lg absolute top-16 transition-all ease-in-out ${
+          className={`w-full h-screen bg-body flex flex-col items-center justify-center gap-8 font-medium text-lg absolute top-16 transition-all ease-in-out ${
             open ? "-right-0" : "-right-[100%]"
           }`}
         >
@@ -51,7 +51,7 @@ const Navbar = () => {
           <Link to="/posts?sort=popular" onClick={()=>setOpen(false)}>Most Popular</Link>
           <Link to="/" onClick={()=>setOpen(false)}>About</Link>
           <Link to="/login" onClick={()=>setOpen(false)}>
-            <button className="py-2 px-4 rounded-3xl bg-blue-800 text-white">
+            <button className="py-2 px-4 rounded-3xl bg-hyve text-white">
               Login 👋
             </button>
           </Link>
@@ -65,7 +65,7 @@ const Navbar = () => {
         <Link to="/">About</Link>
         <SignedOut>
           <Link to="/login">
-            <button className="py-2 px-4 rounded-3xl bg-blue-800 text-white">
+            <button className="py-2 px-4 rounded-3xl bg-hyve text-white">
               Login 👋
             </button>
           </Link>

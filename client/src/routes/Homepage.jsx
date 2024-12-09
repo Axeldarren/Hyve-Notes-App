@@ -9,19 +9,19 @@ const Homepage = () => {
       {/* BREADCRUMB */}
       <div className="flex gap-4">
         <Link to="/">Home</Link>
-        <span>•</span>
-        <span className="text-blue-800">Blogs and Articles</span>
+        <span>•</span>  
+        <span className="brown-hyve font-bold">Featured Notes</span>
       </div>
       {/* INTRODUCTION */}
       <div className="flex items-center justify-between">
         {/* titles */}
         <div className="">
-          <h1 className="text-gray-800 text-2xl md:text-5xl lg:text-6xl font-bold">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+          <h1 className="color-hyve text-2xl md:text-5xl lg:text-5xl font-bold">
+          Knowledge, Shared Instantly
           </h1>
           <p className="mt-8 text-md md:text-xl">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sequi
-            rerum accusantium.
+          <span className="font-bold">Hyve</span> makes your learning journey easier by sharing notes with everyone!
+          <br />
           </p>
         </div>
         {/* animated button */}
@@ -30,8 +30,7 @@ const Homepage = () => {
             viewBox="0 0 200 200"
             width="200"
             height="200"
-            // className="text-lg tracking-widest animate-spin animatedButton"
-            className="text-lg tracking-widest"
+            className="text-lg tracking-widest animate-spin animatedButton"
           >
             <path
               id="circlePath"
@@ -40,14 +39,14 @@ const Homepage = () => {
             />
             <text>
               <textPath href="#circlePath" startOffset="0%">
-                Write your story •
+              Earn More Nectars 🍯•
               </textPath>
               <textPath href="#circlePath" startOffset="50%">
-                Share your idea •
+              Share Your Notes 🐝•
               </textPath>
             </text>
           </svg>
-          <button className="absolute top-0 left-0 right-0 bottom-0 m-auto w-20 h-20 bg-blue-800 rounded-full flex items-center justify-center">
+          <button className="absolute top-0 left-0 right-0 bottom-0 m-auto w-20 h-20 bg-hyve rounded-full flex items-center justify-center">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"

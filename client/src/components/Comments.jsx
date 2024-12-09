@@ -64,9 +64,9 @@ const Comments = ({ postId }) => {
         <textarea
           name="desc"
           placeholder="Write a comment..."
-          className="w-full p-4 rounded-xl"
+          className="w-full p-4 rounded-xl bg-white"
         />
-        <button className="bg-blue-800 px-4 py-3 text-white font-medium rounded-xl">
+        <button className="bg-hyve px-4 py-3 text-white font-medium rounded-xl">
           Send
         </button>
       </form>

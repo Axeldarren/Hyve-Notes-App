@@ -76,14 +76,14 @@ const Write = () => {
       <h1 className="text-cl font-light">Create a New Post</h1>
       <form onSubmit={handleSubmit} className="flex flex-col gap-6 flex-1 mb-6">
         <Upload type="image" setProgress={setProgress} setData={setCover}>
-          <button className="w-max p-2 shadow-md rounded-xl text-sm text-gray-500 bg-white">
+          <button className="w-max p-2 shadow-sm rounded-xl text-sm color-hyve bg-white font-medium bordered-hyve hover:bg-yellow-500 hover:text-white">
             Add a cover image
           </button>
         </Upload>
         <input
           className="text-4xl font-semibold bg-transparent outline-none"
           type="text"
-          placeholder="My Awesome Story"
+          placeholder="Note Title"
           name="title"
         />
         <div className="flex items-center gap-4">
@@ -104,7 +104,7 @@ const Write = () => {
           </select>
         </div>
         <textarea
-          className="p-4 rounded-xl bg-white shadow-md"
+          className="p-4 rounded-xl bg-white shadow-sm  bordered-hyve text-yellow-800 font-semibold"
           name="desc"
           placeholder="A Short Description"
         />
@@ -119,7 +119,7 @@ const Write = () => {
           </div>
           <ReactQuill
             theme="snow"
-            className="flex-1 rounded-xl bg-white shadow-md"
+            className="bordered-hyve flex-1 rounded-xl bg-white shadow-sm"
             value={value}
             onChange={setValue}
             readOnly={0 < progress && progress < 100}
@@ -127,12 +127,18 @@ const Write = () => {
         </div>
         <button
           disabled={mutation.isPending || (0 < progress && progress < 100)}
-          className="bg-blue-800 text-white font-medium rounded-xl mt-4 p-2 w-36 disabled:bg-blue-400 disabled:cursor-not-allowed"
+          className="bg-hyve text-white font-medium rounded-xl mt-4 p-2 w-36 disabled:bg-blue-400 disabled:cursor-not-allowed"
         >
           {mutation.isPending ? "Loading..." : "Send"}
         </button>
-        {"Progress:" + progress}
+        {"Upload Progress: " + progress + "%"}
         {/* {mutation.isError && <span>{mutation.error.message}</span>} */}
+        <div className="w-full bg-gray-200 rounded-full h-2.5">
+          <div
+            className="bg-blue-600 h-2.5 rounded-full"
+            style={{ width: `${progress}%`, transition: "width 0.5s ease-in-out" }}
+          ></div>
+        </div>
       </form>
     </div>
   );
