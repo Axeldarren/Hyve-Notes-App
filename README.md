@@ -28,13 +28,6 @@ Students often struggle to find reliable study materials during exam seasons, re
   - Upload, view, and download academic notes.
   - Search and filter notes by subject, topic, or course name.
   - Save selected notes to personal collections.
-- **In-app Currency (Nectar)**:
-  - Earn Nectar through contributions or purchase it for premium content.
-  - Unlock restricted notes using Nectar.
-- **Gamification**:
-  - Earn experience points (EXP) for uploads.
-  - Progress through levels and earn unique badges.
-- **Copyright Protection**: Automated checks to ensure shared notes comply with copyright regulations.
 
 ---
 
