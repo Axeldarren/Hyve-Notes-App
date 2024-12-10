@@ -177,9 +177,9 @@ export const featurePost = async (req, res) => {
 };
 
 const imagekit = new ImageKit({
-  urlEndpoint: "https://ik.imagekit.io/axel",
-  publicKey: "public_4yGr8RyYi5Ah0vqu2kpdOIRz6E8=",
-  privateKey: "private_UHKqFgn171jDu0iij1tsH0Ha+ec=",
+  urlEndpoint: process.env.IK_URL_ENDPOINT,
+  publicKey: process.env.IK_PUBLIC_KEY,
+  privateKey: process.env.IK_PRIVATE_KEY,
 });
 
 export const uploadAuth = async (req, res) => {

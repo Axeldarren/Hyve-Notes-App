@@ -35,10 +35,30 @@ const Homepage = () => {
   }, [getToken]);
 
   const levelInfo = [
-    { level: "Worker Bee", range: "0-9 Nectar", description: "The starting level for all users. Share notes to earn more Nectar!" },
-    { level: "Soldier Bee", range: "10-49 Nectar", description: "You’re getting stronger! Keep sharing to protect the Hive!" },
-    { level: "Royal Bee", range: "50-99 Nectar", description: "You’ve earned respect in the Hive. Share your wisdom with others!" },
-    { level: "Queen Bee", range: "100+ Nectar", description: "You’ve reached the highest honor in the Hive! Your knowledge is legendary." },
+    {
+      level: "Worker Bee",
+      range: "0-9 Nectar",
+      description: "The starting level for all users. Share notes to earn more Nectar!",
+      image: "Worker-Bee.png"
+    },
+    {
+      level: "Soldier Bee",
+      range: "10-49 Nectar",
+      description: "You’re getting stronger soldier! Keep sharing to protect the Hive!",
+      image: "Soldier-Bee.png"
+    },
+    {
+      level: "Royal Bee",
+      range: "50-99 Nectar",
+      description: "You’ve earned respect in the Hive. Share your wisdom with others!",
+      image: "Royal-Bee.png" 
+    },
+    {
+      level: "Queen Bee",
+      range: "100+ Nectar",
+      description: "You’ve reached the highest honor in the Hive! Your knowledge is legendary.",
+      image: "Queen-Bee.png" 
+    },
   ];
 
   const getLevelClass = (level) => {
@@ -67,13 +87,14 @@ const Homepage = () => {
 
           {/* Currency (Nectar) display */}
           <div className="mt-8 flex items-center gap-4">
-            <span className="text-lg font-medium text-gray-600">Nectar Balance:</span>
+            <span className="text-lg font-bold text-gray-600">Nectar Balance:</span>
             <div className="flex items-center gap-2">
               <span className="text-xl font-semibold text-yellow-500">{nectarBalance}</span>
               <Image src="Nectar.png" alt="Nectar Coin" className="w-6 h-6" />
             </div>
             <div>
-              Level: {userLevel} 🐝
+              <span className="text-lg font-bold   text-gray-600">Level:</span>
+              <span className="text-xl font-semibold text-yellow-500"> {userLevel} 🐝</span>
             </div>
           </div>
 
@@ -122,11 +143,18 @@ const Homepage = () => {
         {levelInfo.map((level, index) => (
           <div
             key={index}
-            className={`flex flex-col items-center border p-4 rounded-xl shadow-md w-64 text-center ${getLevelClass(level.level)}`}
+            className={`flex flex-row items-center border p-4 rounded-xl shadow-md w-120 text-center ${getLevelClass(level.level)}`}
           >
-            <h3 className="font-semibold text-lg text-hyve">{level.level}</h3>
-            <p className="text-sm text-gray-600">{level.range}</p>
-            <p className="text-xs text-gray-500">{level.description}</p>
+            {/* Image on the left */}
+            <div className="mr-4">
+              <Image src={level.image} alt={`${level.level} Icon`} className="w-full h-full" />
+            </div>
+            {/* Text content */}
+            <div className="flex flex-col">
+              <h3 className="font-semibold text-lg text-hyve">{level.level}</h3>
+              <p className="text-sm text-gray-600">{level.range}</p>
+              <p className="text-xs text-gray-500">{level.description}</p>
+            </div>
           </div>
         ))}
       </div>
