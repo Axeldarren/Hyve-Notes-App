@@ -6,6 +6,8 @@ import {
   deletePost,
   uploadAuth,
   featurePost,
+  awardNectar,
+  approvePost
 } from "../controllers/post.controller.js";
 import increaseVisit from "../middlewares/increaseVisit.js";
 
@@ -18,5 +20,7 @@ router.get("/:slug", increaseVisit, getPost);
 router.post("/", createPost);
 router.delete("/:id", deletePost);
 router.patch("/feature", featurePost);
+router.patch('/approve', approvePost);
+router.patch('/awardNectar', awardNectar);
 
 export default router;

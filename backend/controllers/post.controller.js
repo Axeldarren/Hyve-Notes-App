@@ -177,12 +177,74 @@ export const featurePost = async (req, res) => {
 };
 
 const imagekit = new ImageKit({
-  urlEndpoint: process.env.IK_URL_ENDPOINT,
-  publicKey: process.env.IK_PUBLIC_KEY,
-  privateKey: process.env.IK_PRIVATE_KEY,
+  urlEndpoint: "https://ik.imagekit.io/axel",
+  publicKey: "public_4yGr8RyYi5Ah0vqu2kpdOIRz6E8=",
+  privateKey: "private_UHKqFgn171jDu0iij1tsH0Ha+ec=",
 });
 
 export const uploadAuth = async (req, res) => {
   const result = imagekit.getAuthenticationParameters();
   res.send(result);
+};
+
+export const approvePost = async (req, res) => {
+  const clerkUserId = req.auth.userId;
+  const { postId } = req.body;
+
+  if (!clerkUserId) return res.status(401).json("Not authenticated!");
+
+  const role = req.auth.sessionClaims?.metadata?.role || "user";
+  if (role !== "admin") return res.status(403).json("You cannot approve posts!");
+
+  const post = await Post.findById(postId);
+  if (!post) return res.status(404).json("Post not found!");
+
+  if (post.approved) {
+    return res.status(400).json("Post already approved!");
+  }
+
+  post.approved = true;
+  await post.save();
+
+  res.status(200).json(post);
+};
+
+export const awardNectar = async (req, res) => {
+  const clerkUserId = req.auth.userId;
+  const { postId } = req.body;
+
+  if (!clerkUserId) return res.status(401).json("Not authenticated!");
+
+  const role = req.auth.sessionClaims?.metadata?.role || "user";
+  if (role !== "admin") return res.status(403).json("Admin privileges required!");
+
+  const post = await Post.findById(postId).populate('user');
+  if (!post) return res.status(404).json("Post not found!");
+  
+  if (!post.approved) {
+    return res.status(400).json("Post must be approved before awarding nectar!");
+  }
+
+  if (post.nectarAwarded) {
+    return res.status(400).json("Nectar already awarded for this post!");
+  }
+
+  const user = await User.findById(post.user._id);
+  if (!user) return res.status(404).json("User not found!");
+  
+  // Optional: Implement time gating logic here if needed
+  const now = new Date();
+  if (user.lastNectarAwardAt && now - user.lastNectarAwardAt < 86400000) {
+    const waitHours = Math.ceil((86400000 - (now - user.lastNectarAwardAt)) / 3600000);
+    return res.status(400).json(`User must wait ${waitHours} more hour(s) before receiving Nectar again.`);
+  }
+
+  user.nectar += 5;
+  user.lastNectarAwardAt = new Date();
+  await user.save();
+
+  post.nectarAwarded = true;
+  await post.save();
+
+  res.status(200).json({ message: "Nectar awarded successfully!", nectar: user.nectar });
 };
