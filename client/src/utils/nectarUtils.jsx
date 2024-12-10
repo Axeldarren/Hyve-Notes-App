@@ -1,16 +1,21 @@
-// nectarUtils.js
-export const getNectarBalance = () => {
-    const balance = localStorage.getItem("nectarBalance");
-    return balance ? parseInt(balance) : 0; // Default to 0 if not set
-  };
-  
-export const setNectarBalance = (amount) => {
-    localStorage.setItem("nectarBalance", amount);
+import axios from 'axios';
+
+export const fetchUserData = async () => {
+  const token = await getToken();
+  const res = await axios.get(`${import.meta.env.VITE_API_URL}/users/me`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+  return res.data;
 };
 
-export const getUserLevel = () => {
-  const nectarBalance = getNectarBalance();
+export const getNectarBalance = async () => {
+  const userData = await fetchUserData();
+  return userData.nectar || 0; // Default to 0 if nectar balance is not set
+};
 
+export const getUserLevel = (nectarBalance) => {
   if (nectarBalance < 10) {
     return "Worker Bee"; // Level 1
   } else if (nectarBalance < 50) {

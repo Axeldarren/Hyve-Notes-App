@@ -3,11 +3,36 @@ import Image from "../components/Image";
 import MainCategories from "../components/MainCategories";
 import FeaturedPosts from "../components/FeaturedPosts";
 import PostList from "../components/PostList";
-import { getNectarBalance, getUserLevel } from "../utils/nectarUtils";
+import { getUserLevel } from "../utils/nectarUtils";
+import { useState, useEffect } from 'react';
+import axios from 'axios';
+import { useAuth } from "@clerk/clerk-react";
 
 const Homepage = () => {
-  const nectarBalance = getNectarBalance();
-  const userLevel = getUserLevel(); 
+  const [nectarBalance, setNectarBalance] = useState(0);
+  const [userLevel, setUserLevel] = useState("");
+  const { getToken } = useAuth();
+
+  useEffect(() => {
+    const fetchUserData = async () => {
+      try {
+        const token = await getToken();
+        const res = await axios.get(`${import.meta.env.VITE_API_URL}/users/me`, {
+          headers: {
+            Authorization: `Bearer ${token}`
+          }
+        });
+        const user = res.data;
+        const userNectar = user.nectar || 0;
+        setNectarBalance(userNectar);
+        setUserLevel(getUserLevel(userNectar));
+        getUserLevel(userNectar);
+      } catch (error) {
+        console.error("Error fetching user data:", error);
+      }
+    };
+    fetchUserData();
+  }, [getToken]);
 
   const levelInfo = [
     { level: "Worker Bee", range: "0-9 Nectar", description: "The starting level for all users. Share notes to earn more Nectar!" },
@@ -44,7 +69,7 @@ const Homepage = () => {
           <div className="mt-8 flex items-center gap-4">
             <span className="text-lg font-medium text-gray-600">Nectar Balance:</span>
             <div className="flex items-center gap-2">
-              <span className="text-xl font-semibold text-yellow-500">{nectarBalance} </span>
+              <span className="text-xl font-semibold text-yellow-500">{nectarBalance}</span>
               <Image src="Nectar.png" alt="Nectar Coin" className="w-6 h-6" />
             </div>
             <div>

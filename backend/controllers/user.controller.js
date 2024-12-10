@@ -1,5 +1,18 @@
 import User from "../models/user.model.js";
 
+export const getUser = async (req, res) => {
+  try {
+    const clerkUserId = req.auth.userId;
+    // assume req.userId is set by your auth middleware (e.g. from Clerk token)
+    const user = await User.findOne({ clerkUserId });
+    if (!user) return res.status(404).json({ error: "User not found" });
+    res.json(user);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: "Server error" });
+  }
+};
+
 export const getUserSavedPosts = async (req, res) => {
   const clerkUserId = req.auth.userId;
 

@@ -25,6 +25,14 @@ const userSchema = new Schema(
       type: [String],
       default: [],
     },
+    nectar: {
+      type: Number,
+      default: 0,
+    },
+    lastNectarAwardAt: { 
+      type: Date, 
+      default: null 
+    },
   },
   { timestamps: true }
 );
