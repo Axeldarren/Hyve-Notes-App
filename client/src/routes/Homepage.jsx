@@ -37,25 +37,25 @@ const Homepage = () => {
   const levelInfo = [
     {
       level: "Worker Bee",
-      range: "0-9 Nectar",
+      range: "0-9 ",
       description: "The starting level for all users. Share notes to earn more Nectar!",
       image: "Worker-Bee.png"
     },
     {
       level: "Soldier Bee",
-      range: "10-49 Nectar",
+      range: "10-49 ",
       description: "You’re getting stronger soldier! Keep sharing to protect the Hive!",
       image: "Soldier-Bee.png"
     },
     {
       level: "Royal Bee",
-      range: "50-99 Nectar",
+      range: "50-99 ",
       description: "You’ve earned respect in the Hive. Share your wisdom with others!",
       image: "Royal-Bee.png" 
     },
     {
       level: "Queen Bee",
-      range: "100+ Nectar",
+      range: "100+ ",
       description: "You’ve reached the highest honor in the Hive! Your knowledge is legendary.",
       image: "Queen-Bee.png" 
     },
@@ -139,6 +139,7 @@ const Homepage = () => {
         </Link>
       </div>
       {/* Display Nectar Levels horizontally with highlight */}
+      
       <div className="mt-8 flex gap-8 justify-center">
         {levelInfo.map((level, index) => (
           <div
@@ -152,7 +153,9 @@ const Homepage = () => {
             {/* Text content */}
             <div className="flex flex-col">
               <h3 className="font-semibold text-lg text-hyve">{level.level}</h3>
-              <p className="text-sm text-gray-600">{level.range}</p>
+              <div className="flex flex-row items-center justify-center gap-1">
+                <p className="text-sm text-gray-600 flex items-center">{level.range}<Image src="Nectar.png" alt="Nectar Coin" className="ml-1 w-3 h-3" /></p>
+              </div>
               <p className="text-xs text-gray-500">{level.description}</p>
             </div>
           </div>
