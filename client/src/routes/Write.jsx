@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import Upload from "../components/Upload";
+import { getNectarBalance, setNectarBalance } from "../utils/nectarUtils";
 
 const Write = () => {
   const { isLoaded, isSignedIn } = useUser();
@@ -42,6 +43,14 @@ const Write = () => {
     },
     onSuccess: (res) => {
       toast.success("Post has been created");
+
+      // Update Nectar balance after post creation
+      const currentBalance = getNectarBalance();
+      const newBalance = currentBalance + 5; // Add 5 Nectar coins
+      setNectarBalance(newBalance); // Store the updated balance
+
+      toast.success("You earned 5 Nectar coins!");
+
       navigate(`/${res.data.slug}`);
     },
   });
