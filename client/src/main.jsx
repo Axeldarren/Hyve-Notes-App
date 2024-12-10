@@ -13,6 +13,7 @@ import { ClerkProvider } from "@clerk/clerk-react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import SavedPostsPage from "./routes/SavedPostsPage.jsx";
 
 const queryClient = new QueryClient();
 
@@ -50,6 +51,10 @@ const router = createBrowserRouter([
         path: "/register",
         element: <RegisterPage />,
       },
+      {
+        path: "/saved",
+        element: <SavedPostsPage />
+      }
     ],
   },
 ]);

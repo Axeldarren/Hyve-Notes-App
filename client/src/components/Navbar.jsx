@@ -49,12 +49,13 @@ const Navbar = () => {
           <Link to="/" onClick={()=>setOpen(false)}>Home</Link>
           <Link to="/posts?sort=trending" onClick={()=>setOpen(false)}>Trending</Link>
           <Link to="/posts?sort=popular" onClick={()=>setOpen(false)}>Most Popular</Link>
+          <Link to="/saved">Saved Posts</Link>
           <Link to="/login" onClick={()=>setOpen(false)}>
             <button className="py-2 px-4 rounded-3xl bg-hyve text-white">
               Login 👋
             </button>
           </Link>
-        </div>
+        </div>  
       </div>
       {/* DESKTOP MENU */}
       <div className="hidden md:flex items-center gap-8 xl:gap-12 font-medium">
@@ -69,6 +70,7 @@ const Navbar = () => {
           </Link>
         </SignedOut>
         <SignedIn>
+          <Link to="/saved">Saved Posts</Link>
           <UserButton />
         </SignedIn>
       </div>
