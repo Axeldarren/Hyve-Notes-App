@@ -36,12 +36,15 @@ const PostListItem = ({ post }) => {
         {post.approved && (
           <div className="flex flex-col gap-4 xl:w-2/3">
             <div className="flex items-center gap-2">
-              <Image
-                src="Verified.png"
-                className="w-5 h-5 text-green-500"
-                title="Approved Post"
-              />
-              <span>Verified</span>
+
+              <div className="flex py-2 px-4 rounded-3xl bg-gray-200 shadow">
+                <Image
+                  src="Verified.png"
+                  className="w-5 h-5 text-green-500"
+                  title="Approved Post"
+                />
+                <span className="ml-2 text-black font-medium"> Verified</span>
+              </div>
             </div>
           </div>
         )}
