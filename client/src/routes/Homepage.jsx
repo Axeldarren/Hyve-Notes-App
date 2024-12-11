@@ -140,7 +140,7 @@ const Homepage = () => {
       </div>
       {/* Display Nectar Levels horizontally with highlight */}
       
-      <div className="mt-8 flex gap-8 justify-center">
+      <div className="mt-8 flex gap-8 justify-center hidden lg:flex">
         {levelInfo.map((level, index) => (
           <div
             key={index}
