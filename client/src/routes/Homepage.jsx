@@ -51,13 +51,13 @@ const Homepage = () => {
       level: "Royal Bee",
       range: "50-99 ",
       description: "You’ve earned respect in the Hive. Share your wisdom with others!",
-      image: "Royal-Bee.png" 
+      image: "Royal-Bee.png"
     },
     {
       level: "Queen Bee",
       range: "100+ ",
       description: "You’ve reached the highest honor in the Hive! Your knowledge is legendary.",
-      image: "Queen-Bee.png" 
+      image: "Queen-Bee.png"
     },
   ];
 
@@ -86,17 +86,25 @@ const Homepage = () => {
           </p>
 
           {/* Currency (Nectar) display */}
-          <div className="mt-8 flex items-center gap-4">
-            <span className="text-lg font-bold text-gray-600">Nectar Balance:</span>
+          <div className="mt-8 flex flex-col sm:flex-row sm:items-center sm:gap-4">
+            {/* Nectar Balance */}
             <div className="flex items-center gap-2">
-              <span className="text-xl font-semibold text-yellow-500">{nectarBalance}</span>
-              <Image src="Nectar.png" alt="Nectar Coin" className="w-6 h-6" />
+              <span className="text-sm sm:text-lg font-bold text-gray-600">Nectar Balance:</span>
+              <div className="flex items-center gap-2">
+                <span className="text-base sm:text-xl font-semibold text-yellow-500">{nectarBalance}</span>
+                <Image src="Nectar.png" alt="Nectar Coin" className="w-5 h-5 sm:w-6 sm:h-6" />
+              </div>
             </div>
-            <div>
-              <span className="text-lg font-bold   text-gray-600">Level:</span>
-              <span className="text-xl font-semibold text-yellow-500"> {userLevel} 🐝</span>
+
+            {/* Level */}
+            <div className="mt-2 sm:mt-0 flex items-center gap-2">
+              <span className="text-sm sm:text-lg font-bold text-gray-600">Level:</span>
+              <span className="text-base sm:text-xl font-semibold text-yellow-500">
+                {userLevel} 🐝
+              </span>
             </div>
           </div>
+
 
         </div>
 
@@ -139,7 +147,7 @@ const Homepage = () => {
         </Link>
       </div>
       {/* Display Nectar Levels horizontally with highlight */}
-      
+
       <div className="mt-8 flex gap-8 justify-center hidden lg:flex">
         {levelInfo.map((level, index) => (
           <div
