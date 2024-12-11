@@ -18,14 +18,6 @@ const PostListItem = ({ post }) => {
           <Link to={`/${post.slug}`} className="text-4xl font-semibold">
             {post.title}
           </Link>
-          {/* verified */}
-          {post.approved && (
-            <Image
-              src="verified.svg"
-              className="w-5 h-5 text-green-500"
-              title="Approved Post"
-            />
-          )}
         </div>
         {/* other details */}
         <div className="flex items-center gap-2 text-gray-400 text-sm">
@@ -40,7 +32,27 @@ const PostListItem = ({ post }) => {
           <Link className="text-yellow-600">{post.category}</Link>
           <span>{format(post.createdAt)}</span>
         </div>
-        <p>{post.desc}</p>
+        {/* verified */}
+        {post.approved && (
+          <div className="flex flex-col gap-4 xl:w-2/3">
+            <div className="flex items-center gap-2">
+              <Image
+                src="Verified.png"
+                className="w-5 h-5 text-green-500"
+                title="Approved Post"
+              />
+              <span>Verified</span>
+            </div>
+          </div>
+        )}
+        <p
+          className="overflow-hidden text-ellipsis"
+          style={{
+            display: "-webkit-box",
+            WebkitLineClamp: 1, // Limits to 2 lines
+            WebkitBoxOrient: "vertical",
+          }}>
+          {post.desc}</p>
         <Link
           to={`/${post.slug}`}
           className="underline text-yellow-600 text-sm"
