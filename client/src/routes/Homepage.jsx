@@ -147,28 +147,31 @@ const Homepage = () => {
         </Link>
       </div>
       {/* Display Nectar Levels horizontally with highlight */}
-
       <div className="mt-8 flex gap-8 justify-center hidden lg:flex">
         {levelInfo.map((level, index) => (
           <div
             key={index}
-            className={`flex flex-row items-center border p-4 rounded-xl shadow-md w-120 text-center ${getLevelClass(level.level)}`}
+            className={`flex flex-row items-center border p-4 rounded-xl shadow-md w-120 text-center transition-all duration-300 ${getLevelClass(level.level)}`}
           >
-            {/* Image on the left */}
+            {/* Image */}
             <div className="mr-4">
               <Image src={level.image} alt={`${level.level} Icon`} className="w-full h-full" />
             </div>
-            {/* Text content */}
+            {/* Text Content */}
             <div className="flex flex-col">
               <h3 className="font-semibold text-lg text-hyve">{level.level}</h3>
               <div className="flex flex-row items-center justify-center gap-1">
-                <p className="text-sm text-gray-600 flex items-center">{level.range}<Image src="Nectar.png" alt="Nectar Coin" className="ml-1 w-3 h-3" /></p>
+                <p className="text-sm text-gray-600 flex items-center">
+                  {level.range}
+                  <Image src="Nectar.png" alt="Nectar Coin" className="ml-1 w-3 h-3" />
+                </p>
               </div>
               <p className="text-xs text-gray-500">{level.description}</p>
             </div>
           </div>
         ))}
       </div>
+
       {/* CATEGORIES */}
       <MainCategories />
       {/* FEATURED POSTS */}
