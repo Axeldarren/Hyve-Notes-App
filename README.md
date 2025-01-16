@@ -6,7 +6,8 @@ Hyve is a centralized platform designed for students to share academic notes, qu
 2. [Features](#features)  
 3. [Tech Stack and Architecture](#tech-stack-and-architecture)  
 4. [Setup Instructions](#setup-instructions)  
-5. [Roadmap](#roadmap)  
+5. [Roadmap](#roadmap)
+6. [Acknowledgments](#acknowledgments)
 
 ---
 
