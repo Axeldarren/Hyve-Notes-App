@@ -1,5 +1,5 @@
 # Hyve: Collaborative Study Platform  
-Hyve is a centralized platform designed for students to share academic notes, quizzes, and exam materials across cohorts. By fostering collaboration, Hyve aims to improve the efficiency and quality of exam preparation.  
+Hyve is a centralized platform designed for students to share academic notes, quizzes, and exam materials across cohorts. By fostering collaboration, Hyve aims to improve the efficiency and quality of exam preparation. You can try out Hyve here: https://hyveapp.netlify.app/
 
 ## Table of Contents  
 1. [Background](#background)  
